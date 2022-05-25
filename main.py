@@ -4,6 +4,8 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 import time
 
+USER_NAME = input("Please enter your email address")
+PASSWORD_ = input("Please enter your password")
 chrome_driver_path = "C:/Users/19402/Applications/chromedriver"
 job_app_url ="https://www.linkedin.com/jobs/search/?f_AL=true&geoId=105365761&keywords=software%20engineer&location=" \
              "Nigeria"
@@ -17,9 +19,9 @@ sign_in.click()
 time.sleep(5)
 
 username = driver.find_element(by=By.ID, value="username")
-username.send_keys("adieleseyi@gmail.com")
+username.send_keys(USER_NAME)
 password = driver.find_element(by=By.ID, value="password")
-password.send_keys("Donsexy2022$")
+password.send_keys(PASSWORD_)
 final_sign_in = driver.find_element(by=By.CLASS_NAME, value="from__button--floating")
 final_sign_in.click()
 
@@ -51,6 +53,6 @@ for job in job_listings:
         print("Application not found!")
         continue
 
-time.sleep(3)
+time.sleep(5)
 driver.quit()
 
